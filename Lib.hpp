@@ -23,21 +23,11 @@ public:
       UGLY,
     };
 
-    // clang-format off
     static constexpr auto GOOD = value_t::GOOD;
-    static constexpr auto BAD  = value_t::BAD;
+    static constexpr auto BAD = value_t::BAD;
     static constexpr auto UGLY = value_t::UGLY;
 
-    static char const* c_str(value_t value)
-    {
-      switch (value) {
-      case GOOD: return "good";
-      case BAD:  return "bad";
-      case UGLY: return "ugly";
-      }
-      throw std::invalid_argument("impossible value_t");
-    }
-    // clang-format on
+    static char const* c_str(value_t value);
 
     char const* c_str() const { return c_str(value_); }
 

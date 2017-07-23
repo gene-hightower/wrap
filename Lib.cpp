@@ -27,6 +27,18 @@ Lib::Result::Result(int value)
   // clang-format on
 }
 
+char const* Lib::Result::c_str(Lib::Result::value_t value)
+{
+  // clang-format off
+  switch (value) {
+  case GOOD: return "good";
+  case BAD:  return "bad";
+  case UGLY: return "ugly";
+  }
+  // clang-format on
+  throw std::invalid_argument("impossible value_t");
+}
+
 std::ostream& operator<<(std::ostream& os, Lib::Result rslt)
 {
   return os << rslt.c_str();
