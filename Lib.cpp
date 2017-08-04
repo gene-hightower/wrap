@@ -4,6 +4,8 @@ extern "C" {
 
 #include "Lib.hpp"
 
+#include <stdexcept>
+
 Lib::Lib()
   : lib_(LIB_init())
 {

@@ -2,7 +2,6 @@
 #define LIB_HPP_INCLUDED
 
 #include <iostream>
-#include <stdexcept>
 
 // forward declare
 typedef struct LIB LIB_t;
