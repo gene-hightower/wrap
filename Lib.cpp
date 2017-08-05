@@ -1,8 +1,8 @@
+#include "Lib.hpp"
+
 extern "C" {
 #include "lib.h" // the header we're wrapping
 }
-
-#include "Lib.hpp"
 
 #include <stdexcept>
 
@@ -18,27 +18,19 @@ Lib::~Lib() { LIB_cleanup(lib_); }
 
 Lib::Result::Result(int value)
 {
-  // clang-format off
   switch (value) {
-  case LIB_RESULT_GOOD: value_ = value_t::GOOD; break;
-  case LIB_RESULT_BAD:  value_ = value_t::BAD;  break;
-  case LIB_RESULT_UGLY: value_ = value_t::UGLY; break;
+  case LIB_RESULT_GOOD:
+    value_ = value_t::GOOD;
+    break;
+  case LIB_RESULT_BAD:
+    value_ = value_t::BAD;
+    break;
+  case LIB_RESULT_UGLY:
+    value_ = value_t::UGLY;
+    break;
   default:
     throw std::invalid_argument("invalid enum LIB_result_enum value");
   }
-  // clang-format on
-}
-
-char const* Lib::Result::c_str(Lib::Result::value_t value)
-{
-  // clang-format off
-  switch (value) {
-  case GOOD: return "good";
-  case BAD:  return "bad";
-  case UGLY: return "ugly";
-  }
-  // clang-format on
-  throw std::invalid_argument("impossible value_t");
 }
 
 std::ostream& operator<<(std::ostream& os, Lib::Result rslt)

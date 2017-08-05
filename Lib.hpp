@@ -26,12 +26,23 @@ public:
     static constexpr auto BAD = value_t::BAD;
     static constexpr auto UGLY = value_t::UGLY;
 
-    static char const* c_str(value_t value);
+    static constexpr char const* c_str(value_t value)
+    {
+      switch (value) {
+      case GOOD:
+        return "good";
+      case BAD:
+        return "bad";
+      case UGLY:
+        return "ugly";
+      }
+      return "*** unknown ***";
+    }
 
-    char const* c_str() const { return c_str(value_); }
+    constexpr char const* c_str() const { return c_str(value_); }
 
-    explicit operator char const*() const { return c_str(); }
-    operator value_t() const { return value_; }
+    constexpr explicit operator char const*() const { return c_str(); }
+    constexpr operator value_t() const { return value_; }
 
   private:
     value_t value_{GOOD};
