@@ -33,16 +33,6 @@ Lib::Result::Result(int value)
   }
 }
 
-std::ostream& operator<<(std::ostream& os, Lib::Result rslt)
-{
-  return os << rslt.c_str();
-}
-
-std::ostream& operator<<(std::ostream& os, Lib::Result::value_t rslt)
-{
-  return os << Lib::Result::c_str(rslt);
-}
-
 Lib::Result Lib::some_function(bool left, bool center, bool right,
                                bool* new_center)
 

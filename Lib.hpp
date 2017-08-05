@@ -54,7 +54,14 @@ private:
   LIB_t* lib_;
 };
 
-std::ostream& operator<<(std::ostream& os, Lib::Result rslt);
-std::ostream& operator<<(std::ostream& os, Lib::Result::value_t rslt);
+inline std::ostream& operator<<(std::ostream& os, Lib::Result rslt)
+{
+  return os << rslt.c_str();
+}
+
+inline std::ostream& operator<<(std::ostream& os, Lib::Result::value_t rslt)
+{
+  return os << Lib::Result::c_str(rslt);
+}
 
 #endif // LIB_HPP_INCLUDED
