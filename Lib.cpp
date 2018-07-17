@@ -20,13 +20,13 @@ Lib::Result::Result(int value)
 {
   switch (value) {
   case LIB_RESULT_GOOD:
-    value_ = value_t::GOOD;
+    v_ = value_t::GOOD;
     break;
   case LIB_RESULT_BAD:
-    value_ = value_t::BAD;
+    v_ = value_t::BAD;
     break;
   case LIB_RESULT_UGLY:
-    value_ = value_t::UGLY;
+    v_ = value_t::UGLY;
     break;
   default:
     throw std::invalid_argument("invalid enum LIB_result_enum value");

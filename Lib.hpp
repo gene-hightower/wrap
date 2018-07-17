@@ -36,16 +36,16 @@ public:
       case UGLY:
         return "ugly";
       }
-      return "*** unknown ***";
+      return "** invalid value_t **";
     }
 
-    constexpr char const* c_str() const { return c_str(value_); }
+    constexpr char const* c_str() const { return c_str(v_); }
 
     constexpr explicit operator char const*() const { return c_str(); }
-    constexpr operator value_t() const { return value_; }
+    constexpr operator value_t() const { return v_; }
 
   private:
-    value_t value_{GOOD};
+    value_t v_{GOOD};
   };
 
   Result some_function(bool left, bool center, bool right, bool* new_center);
